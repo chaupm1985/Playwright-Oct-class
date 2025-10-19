@@ -22,6 +22,15 @@ export class homePage{
     readonly searchbarText: Locator;
     readonly searchButton: Locator;
     readonly categoriesMenuButton: Locator;
+    readonly automobileandmototLink: Locator;
+    readonly carElectLink: Locator;
+    readonly mobiAccLink: Locator;
+    readonly comandoffLink: Locator;
+    readonly tabletAccLink: Locator;
+    readonly consumElecLink: Locator;
+    readonly elecComSupLink: Locator;
+    readonly phoneTeleLink: Locator;
+    readonly watchLink: Locator;
 
 
     constructor(private page:Page){
@@ -45,6 +54,15 @@ export class homePage{
        this.searchbarText = page.getByRole('textbox', { name: 'Search input' })
        this.categoriesMenuButton = page.locator('//select[@name="product_cat"]');
        this.searchButton = page.getByRole('button', {name: 'submit'});
+       this.automobileandmototLink = page.locator('#menu-all-departments-1').getByRole('link', { name: /Automobiles & Motorcycles/i });
+       this.carElectLink = page.locator('#menu-all-departments-1').getByRole('link', { name: ' Car Electronics' });
+       this.mobiAccLink = page.locator('#menu-all-departments-1').getByRole('link', { name: 'Mobile Phone Accessories' })
+       this.comandoffLink = page.locator('#menu-all-departments-1').getByRole('link', { name: 'Computer & Office' })
+       this.tabletAccLink = page.locator('#menu-all-departments-1').getByRole('link', { name: ' Tablet Accessories' })
+       this.consumElecLink = page.locator('#menu-all-departments-1').getByRole('link', { name: ' Consumer Electronics' });
+       this.elecComSupLink = page.locator('#menu-all-departments-1').getByRole('link', { name: ' Electronic Components &' })
+       this.phoneTeleLink = page.locator('#menu-all-departments-1').getByRole('link', { name: ' Phones & Telecommunications' })
+       this.watchLink = page.locator('#menu-all-departments-1').getByRole('link', { name: ' Watches' })
     }
     async navigate(){
         await this.page.goto("https://demo.testarchitect.com/")
@@ -57,4 +75,8 @@ export class homePage{
         }
     }
 
+    async closeAllPopups(){
+        await this.closeSaleIfexist();
+        await this.okcookieButton.click();
+    }
 }
