@@ -3,6 +3,7 @@ export class shopPage{
     readonly firstItemAddCart: Locator;
     readonly firstItemName: Locator;
     readonly firstItemPrice: Locator;
+    readonly cartLink: Locator;
     readonly cartAddItemAlert: Locator;
     readonly cartQuantityIcon: Locator;
     readonly cartItemNameDropdown: Locator;
@@ -16,7 +17,7 @@ export class shopPage{
        this.cartQuantityIcon = page.locator('//div[contains(@class,"et_b_header-cart") and contains(@class,"et-content-dropdown")]//span[@class="et_b-icon"]//span[contains(@class,"et-cart-quantity")]');
        this.cartItemNameDropdown = page.locator('//div[contains(@class,"et_b_header-cart") and contains(@class,"et-content-dropdown")]//h4[@class="product-title"]/a');
        this.carttotalPriceDropdown = page.locator('//div[contains(@class,"et_b_header-cart") and contains(@class,"et-content-dropdown")]//span[@class="et-cart-total-inner"]/span');
-
+       this.cartLink = page.locator('//div[contains(@class,"et_b_header-cart") and contains(@class,"et-content-dropdown")]');
 
     }
 }

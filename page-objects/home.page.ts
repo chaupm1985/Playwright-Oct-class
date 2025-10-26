@@ -1,6 +1,5 @@
 import {Locator,Page} from "@playwright/test";
-import { time } from "console";
-import { TIMEOUT } from "dns";
+
 export class homePage{
     readonly loginButton: Locator;
     readonly closeSaleButton: Locator;
