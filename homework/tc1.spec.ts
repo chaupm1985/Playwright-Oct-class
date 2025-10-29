@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { test } from '../common/BaseTest.ts';
 import {homePage} from "../page-objects/home.page.ts";
 
 test("Verify Homepage element is visible",async({page}) =>{

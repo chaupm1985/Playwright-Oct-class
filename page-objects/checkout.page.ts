@@ -10,6 +10,7 @@ export class checkoutPage{
     readonly phonetextbox:Locator;
     readonly placeorderbutton:Locator;
     readonly validationErrorMessages:Locator;
+    readonly orderthankLabel:Locator;
 
 
     constructor(private page:Page){
@@ -22,5 +23,6 @@ export class checkoutPage{
        this.emailtextbox = page.getByRole('textbox', { name: 'Email address *' });
        this.placeorderbutton = page.getByRole('button', { name: 'Place order' });
        this.validationErrorMessages = page.getByRole('alert');
+       this.orderthankLabel = page.getByText('Thank you. Your order has');
 }
 }

@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+import {homePage} from "../page-objects/home.page.ts";
+import {shopPage} from "../page-objects/shop.page.ts";
+import {cartPage} from "../page-objects/cart.page.ts";
+import {checkoutPage} from "../page-objects/checkout.page.ts";
+
+test("Verify Guest User Can Complete Checkout",async({page}) =>{
+    const test_homePage = new homePage(page);
+    const test_shopPage = new shopPage(page);
+    const test_cartPage = new cartPage(page);
+    const test_checkoutPage = new checkoutPage(page);
+    await test_homePage.navigate();
+    await test_homePage.closeAllPopups();
+    await test_homePage.shoplink.click();
+    await page.waitForURL(/shop/);
+    await test_shopPage.firstItemName.waitFor({state:'visible'});
+    await test_shopPage.firstItemAddCart.click();
+    await test_shopPage.cartLink.click();
+    await page.waitForURL(/cart/);
+    await page.reload();
+    await test_cartPage.proceedCheckOutButton.click();
+    await page.waitForURL(/checkout/);
+    await test_checkoutPage.countryselector.selectOption("Vietnam");
+    await test_checkoutPage.firstnameTextbox.fill("Chau");
+    await test_checkoutPage.lastnameTextbox.fill("Phan");
+    await test_checkoutPage.addressTextbox.fill("123 ABC Street");
+    await test_checkoutPage.cityTextbox.fill("HCM");
+    await test_checkoutPage.phonetextbox.fill("0123456789");
+    await test_checkoutPage.emailtextbox.fill("abc@vn.com");
+    await test_checkoutPage.placeorderbutton.click();
+    await expect(test_checkoutPage.orderthankLabel).toBeVisible();
+});

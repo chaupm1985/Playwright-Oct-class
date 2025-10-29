@@ -3,14 +3,12 @@ import {homePage} from "../page-objects/home.page.ts";
 import {myAccountPage} from "../page-objects/myaccount.page.ts";
 import {shopPage} from "../page-objects/shop.page.ts";
 import {cartPage} from "../page-objects/cart.page.ts";
-import {checkoutPage} from "../page-objects/checkout.page.ts";
 
 test("Verify Users Can Clear the Shopping Cart",async({page}) =>{
     const test_homePage = new homePage(page);
     const test_myAccountPage = new myAccountPage(page);
     const test_shopPage = new shopPage(page);
     const test_cartPage = new cartPage(page);
-    const test_checkoutPage = new checkoutPage(page);
     await test_homePage.navigate();
     await test_homePage.closeAllPopups();
     await test_homePage.loginButton.click();
