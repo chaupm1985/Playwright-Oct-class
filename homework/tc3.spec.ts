@@ -1,9 +1,7 @@
-import { test } from '@playwright/test';
-import {homePage} from "../page-objects/home.page.ts";
+import { test } from '../common/BaseTest.ts';
 import {checkMenuLink} from "../verify/home.verify.ts";
 
-test("Verify Main Menu Categories Navigate Correctly",async({page}) =>{
-    const test_homePage = new homePage(page);
+test("Verify Main Menu Categories Navigate Correctly",async({page,test_homePage}) =>{
     await test_homePage.navigate();
     await test_homePage.closeAllPopups();
     await checkMenuLink(page,test_homePage.automobileandmototLink,"automobiles-motorcycles");

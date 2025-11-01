@@ -1,10 +1,7 @@
-import { test, expect } from '@playwright/test';
-import {homePage} from "../page-objects/home.page.ts";
-import {productPage} from "../page-objects/product.page.ts";
+import { expect } from '@playwright/test';
+import { test } from '../common/BaseTest.ts';
 
-test("Verify Product Search Functionality Works",async({page}) =>{
-    const test_homePage = new homePage(page);
-    const test_productPage = new productPage(page);
+test("Verify Product Search Functionality Works",async({page,test_homePage,test_productPage}) =>{
     await test_homePage.navigate();
     await test_homePage.closeSaleIfexist();
     await test_homePage.okcookieButton.click();

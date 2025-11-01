@@ -1,9 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../common/BaseTest.ts';
-import {homePage} from "../page-objects/home.page.ts";
 
-test("Verify Homepage element is visible",async({page}) =>{
-    const test_homePage = new homePage(page);
+test("Verify Homepage element is visible",async({page,test_homePage}) =>{
     await test_homePage.navigate();
     await test_homePage.closeSaleIfexist();
     await test_homePage.okcookieButton.click();
