@@ -1,6 +1,6 @@
 import {Locator,Page} from "@playwright/test";
 
-export class checkoutPage{
+export class CheckoutPage{
     readonly firstnameTextbox:Locator;
     readonly lastnameTextbox:Locator;
     readonly countryselector:Locator;

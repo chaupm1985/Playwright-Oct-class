@@ -1,5 +1,5 @@
 import {Locator,Page} from "@playwright/test";
-export class shopPage{
+export class ShopPage{
     readonly firstItem: Locator;
     readonly firstItemAddCart: Locator;
     readonly firstItemName: Locator;

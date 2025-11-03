@@ -1,5 +1,5 @@
 import {Locator,Page} from "@playwright/test";
-export class productPage{
+export class ProductPage{
     readonly cameracateLink: Locator;
 
     constructor(private page:Page){
